@@ -5,7 +5,7 @@ provider "aws" {
 # Create VPC and subnets
 # Provide arguments in terraform.tfvars file
 module "vpc" {
-  source              = "/Users/I501430/Documents/mywork/terraform/aws/network"
+  source              = "./terraform/aws/network"
   aws_region          = var.aws_region
   project_name        = var.project_name
   enable_dns          = var.enable_dns
@@ -16,7 +16,7 @@ module "vpc" {
 
 # Create EC2 instances in the VPC
 module "ec2" {
-  source = "/Users/I501430/Documents/mywork/terraform/aws/vms"
+  source = "./terraform/aws/vms"
   ec2_instance_count = var.ec2_instance_count
   instance_type= var.instance_type
   subnets-id = module.vpc.subnets-id
