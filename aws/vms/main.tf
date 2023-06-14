@@ -6,7 +6,7 @@ data "aws_ssm_parameter" "ami" {
 # Define the ssh key pair for EC2
 resource "aws_key_pair" "poc-ec2-keypair" {
   key_name   = "${var.project_name}-ec2-keypair"
-  public_key = file("/home/bigcat/.ssh/poc-tag-ec2-key.pub")
+  public_key = file("/var/lib/jenkins/workspace/.ssh/poc-tag-ec2-key.pub")
 }
 
 # Create EC2 instances
